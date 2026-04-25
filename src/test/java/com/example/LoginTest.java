@@ -19,9 +19,11 @@ public class LoginTest {
         WebDriver driver = new ChromeDriver(options);
         driver.navigate().to("http://103.139.122.250:4000/");
 
-        driver.findElement(By.name("email")).sendKeys("qasim@malik.com");
-        driver.findElement(By.name("password")).sendKeys("abcdefg");
-        driver.findElement(By.id("m_login_signin_submit")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        driver.findElement(By.id("email")).sendKeys("qasim@malik.com");
+        driver.findElement(By.id("password")).sendKeys("abcdefg");
+        driver.findElement(By.cssSelector("button[type='submit']")).click();
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
